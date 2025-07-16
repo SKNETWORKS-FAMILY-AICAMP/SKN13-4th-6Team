@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>신용카드 추천 챗봇</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", sans-serif;
+        background: #f4f6f9;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      header {
+        background-color: #3b5998;
+        color: #ffffff;
+        padding: 18px 24px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        text-align: center;
+      }
+
+      .chat-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 24px;
+        overflow-y: auto;
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        background-color: #ffffff;
+      }
+
+      .message {
+        max-width: 70%;
+        padding: 14px 18px;
+        border-radius: 16px;
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        word-break: break-word;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .right {
+        align-self: flex-end;
+        background-color: #4e9af1;
+        color: white;
+        border-bottom-right-radius: 0;
+      }
+
+      .left {
+        align-self: flex-start;
+        background-color: #eaecef;
+        color: #333;
+        border-bottom-left-radius: 0;
+      }
+
+      .chat-input {
+        display: flex;
+        padding: 16px 24px;
+        background-color: white;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        max-width: 800px;
+        width: 100%;
+        position: sticky;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      .chat-input input {
+        flex: 1;
+        padding: 12px 16px;
+        border-radius: 25px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        outline: none;
+        transition: border 0.3s ease;
+      }
+
+      .chat-input input:focus {
+        border-color: #4e9af1;
+      }
+
+      .chat-input button {
+        margin-left: 10px;
+        padding: 12px 20px;
+        border-radius: 25px;
+        border: none;
+        background-color: #4e9af1;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .chat-input button:hover {
+        background-color: #397cd2;
+      }
+
+      .faq-in-chat {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 12px 0 20px 0;
+      }
+
+      .faq-in-chat .faq-btn {
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        padding: 8px 14px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      .faq-in-chat .faq-btn:hover {
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <header>신용카드 추천 챗봇</header>
+
+    <!-- 채팅 메시지 출력 영역 -->
+    <div class="chat-container" id="chat-container"></div>
+
+    <!-- 채팅 입력창 -->
+    <div class="chat-input">
+      <input type="text" id="chat_input" placeholder="메시지를 입력하세요..." />
+      <button id="send_btn">전송</button>
+    </div>
+
+    <script>
+      function sendMessage() {
+        const inputField = document.getElementById("chat_input");
+        const message = inputField.value.trim();
+        const chatContainer = document.getElementById("chat-container");
+
+        if (!message) {
+          alert("메시지를 입력하세요.");
+          return;
+        }
+
+        // 사용자 메시지 추가
+        const userMsg = document.createElement("div");
+        userMsg.className = "message right";
+        userMsg.innerText = message;
+        chatContainer.appendChild(userMsg);
+
+        // 서버 요청
+        const xhr = new XMLHttpRequest();
+        xhr.open(
+          "GET",
+          `/api/chat_message/${encodeURIComponent(message)}`,
+          true
+        );
+
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            const data = JSON.parse(xhr.responseText);
+            const botMsg = document.createElement("div");
+            botMsg.className = "message left";
+            botMsg.innerText = data.response || "응답이 없습니다.";
+            chatContainer.appendChild(botMsg);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+          } else {
+            alert(`오류 발생: ${xhr.status} ${xhr.statusText}`);
+          }
+        };
+
+        xhr.send();
+        inputField.value = "";
+        inputField.focus();
+      }
+
+      document
+        .getElementById("send_btn")
+        .addEventListener("click", sendMessage);
+      document
+        .getElementById("chat_input")
+        .addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            sendMessage();
+          }
+        });
+      window.onload = function () {
+        const chatContainer = document.getElementById("chat-container");
+
+        // 챗봇 인삿말
+        const greeting = document.createElement("div");
+        greeting.className = "message left";
+        greeting.innerText =
+          "안녕하세요! 신용카드 추천 챗봇입니다. 궁금한 점을 선택하거나 입력해 주세요.";
+        chatContainer.appendChild(greeting);
+
+        // FAQ 버튼들
+        const faqBox = document.createElement("div");
+        faqBox.className = "faq-in-chat";
+        const faqs = [
+          "연회비 없는 카드",
+          "해외 결제 좋은 카드",
+          "직장인 추천 카드",
+          "대학생 혜택 많은 카드",
+          "주유 할인 카드 추천해줘",
+          "마일리지 적립 잘 되는 카드",
+          "커플/가족이 같이 쓰기 좋은 카드",
+          "신용점수 올리기 좋은 카드 있어?",
+        ];
+
+        faqs.forEach((text) => {
+          const btn = document.createElement("button");
+          btn.className = "faq-btn";
+          btn.innerText = text;
+          btn.addEventListener("click", function () {
+            document.getElementById("chat_input").value = this.innerText;
+            sendMessage();
+          });
+          faqBox.appendChild(btn);
+        });
+
+        chatContainer.appendChild(faqBox);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      };
+    </script>
+  </body>
+</html>
