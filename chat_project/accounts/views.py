@@ -11,7 +11,7 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('chat_interface')  # 로그인 성공 시 이동할 페이지
+                return redirect('chatbot:chat_interface')  # 로그인 성공 시 이동할 페이지
             else:
                 form.add_error(None, '아이디 또는 비밀번호가 올바르지 않습니다.')
     else:
