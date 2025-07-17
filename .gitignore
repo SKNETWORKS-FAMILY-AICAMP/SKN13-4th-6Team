@@ -1,6 +1,6 @@
-# .gitignore 파일에 추가할 내용
+# .gitignore 파일에 추가
 db.sqlite3
-__pycache__/
+*/__pycache__/
 *.pyc
-.DS_Store
+*/.DS_Store
 venv/
