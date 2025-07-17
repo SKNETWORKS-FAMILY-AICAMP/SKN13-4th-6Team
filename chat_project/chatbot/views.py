@@ -1,14 +1,17 @@
+# chatbot/views.py
 from django.shortcuts import render
 from django.http import JsonResponse
+from recommendation.recommender import get_recommendation_system
+recommendation_system = get_recommendation_system()
 
 def chat_interface(request):
     return render(request, 'chatbot/chat.html')
 
-def chat_api(request, message):
-    # 이 부분에 실제 챗봇 응답 로직을 넣으면 됨. (필요시 파일 분리)
-    # 지금은 임시 응답만 반환.
-    if not message:
-        response = "메세지가 없슴둥"
-    else :
-        response = f"'{message}'에 대한 응답입니다."  # 실제로 LLM에서 생성된 결과로 교체해야 함.
-    return JsonResponse({'response': response})
+def chat_api(request):
+    message = request.GET.get("message", "")
+    try:
+        response_text = recommendation_system.recommend_cards(message)
+    except Exception as e:
+        response_text = f"추천 중 오류가 발생했습니다: {e}"
+
+    return JsonResponse({"response": response_text, "received_message": message})
