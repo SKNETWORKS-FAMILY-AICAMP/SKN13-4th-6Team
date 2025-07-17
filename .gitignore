@@ -1,9 +1,6 @@
 # .gitignore 파일에 추가할 내용
 db.sqlite3
-accounts/__pycache__/
-chat_project/__pycache__/
-chatbot/__pycache__/
-chatbot/migrations/__pycache__/
+__pycache__/
 *.pyc
 .DS_Store
 venv/
