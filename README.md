@@ -81,8 +81,11 @@
 - 사용자 신뢰도 확보를 위해 카드 상세 페이지 링크와 혜택 출처 정보를 함께 제공합니다.  
 - 누구나 쉽게 접근 가능한 웹 인터페이스와 챗봇 구조를 통해 카드 정보 탐색의 진입 장벽을 낮추고, 소비자 선택을 돕습니다.
 
-<img src="images\화면구현2.png" alt="로그인"/>
-<img src="images\화면구현1.png" alt="챗봇"/>
+<div style="display: flex; gap: 16px; align-items: flex-start;">
+  <img src="images/화면구현2.png" alt="로그인" style="width:350px; height:auto;">
+  <img src="images/화면구현1.png" alt="챗봇" style="width:350px; height:auto;">
+</div>
+
 
 ## 파일 구조도
 ```
