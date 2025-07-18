@@ -83,46 +83,14 @@
 
 ## 시스템 아키텍쳐
 ```
-chat_project/
-├── chat_project/     
-│   ├── __init__.py               
-│   ├── asgi.py   
-│   ├── settings.py                  
-│   ├── urls.py                  
-│   └── wsgi.py
-├── accounts/                   
-│   ├── __init__.py
-│   ├── admin.py    
-│   ├── apps.py          
-│   ├── forms.py          
-│   ├── models.py          
-│   ├── tests.py          
-│   ├── urls.py          
-│   └── views.py
-├── chatbot/                  
-│   ├── __init__.py    
-│   ├── admin.py    
-│   ├── apps.py          
-│   ├── models.py          
-│   ├── tests.py          
-│   ├── urls.py          
-│   └──views.py          
-├── recommendation/              
-│   ├── model_manager.py        
-│   ├── query_filter.py        
-│   ├── formatter.py            
-│   ├── prompt_builder.py       
-│   ├── recommender.py          
-│   ├── apps.py        
-│   └── __init__.py
-├── templates/                  
-│   └── base.html   
-├── manage.py   
-├── db.sqlite3
-├── documents/              
-│   ├── 요구사항 명세서        
-│   ├── 화면 설계서     
-│   ├── 시스템 구성도                
-│   └── 테스트 계획서 및 테스트 결과 보고서
-└── README.md          
+chat_project/             # Django 프로젝트 루트 폴더
+├── chat_project/         # Django 프로젝트 설정(메인 설정/라우팅 등)
+├── accounts/             # 회원/로그인 관련 앱
+├── chatbot/              # 챗봇 기능 앱
+├── recommendation/       # 추천 모델/추천 기능 앱
+├── templates/            # 공통 템플릿(HTML 등 UI 파일) 폴더
+├── manage.py             # Django 명령어 실행/관리용 메인 스크립트
+├── db.sqlite3            # SQLite 형식 데이터베이스 파일
+├── documents/            # 산출물(설계서, 보고서 등 파일)
+└── README.md             # 프로젝트 설명서 및 사용법
 ```
