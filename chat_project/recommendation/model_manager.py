@@ -42,7 +42,7 @@ class ModelManager:
     def initialize_llm(self) -> None:
         """LLM 모델 초기화"""
         try:
-            self.llm = ChatOpenAI(model="gpt-4.1")
+            self.llm = ChatOpenAI(model="gpt-4.1", streaming=True)
             print("OpenAI GPT-4 모델을 사용합니다.")
         except Exception as e:
             print(f"OpenAI 모델 로딩 실패: {e}")
