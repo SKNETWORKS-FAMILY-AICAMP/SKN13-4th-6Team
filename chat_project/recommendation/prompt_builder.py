@@ -19,6 +19,14 @@ class PromptBuilder:
         ])
     
     @staticmethod
+    def create_general_chat_prompt() -> ChatPromptTemplate:
+        """일반 대화용 프롬프트 템플릿 생성"""
+        return ChatPromptTemplate.from_messages([
+            ("system", PromptBuilder._get_general_system_prompt()),
+            ("human", "{question}")
+        ])
+    
+    @staticmethod
     def _get_system_prompt() -> str:
         """시스템 프롬프트 텍스트"""
         return dedent("""
@@ -101,4 +109,23 @@ class PromptBuilder:
         - 카드 정보에 URL이 포함되어 있다면 반드시 출력에 포함시켜주세요
         - 카드 정보에 없는 내용은 생성하지 마세요
         - 각 카드는 서로 다른 특징을 가져야 합니다
+        """)
+    
+    @staticmethod
+    def _get_general_system_prompt() -> str:
+        """일반 대화용 시스템 프롬프트 텍스트"""
+        return dedent("""
+        당신은 친근하고 도움이 되는 AI 챗봇입니다. 
+        
+        사용자와 자연스럽게 대화하며, 신용카드 관련 질문이 있을 때는 도움을 드릴 수 있다고 안내해주세요.
+        
+        **대화 스타일:**
+        - 친근하고 자연스러운 톤으로 응답
+        - 한국어로 응답
+        - 신용카드 추천이 필요하면 언제든 말씀해달라고 안내
+        
+        **신용카드 관련 안내 예시:**
+        - "신용카드 추천이 필요하시면 언제든 말씀해주세요!"
+        - "카드 추천이 필요하시면 소비 패턴이나 원하는 혜택을 알려주세요"
+        - "주유, 외식, 온라인 쇼핑 등 어떤 분야에서 혜택을 원하시는지 알려주시면 맞춤형 카드를 추천해드릴 수 있어요"
         """) 
