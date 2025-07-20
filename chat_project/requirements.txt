@@ -1,0 +1,9 @@
+torch
+langchain
+langchain-community
+langchain-core
+langchain-openai
+dotenv
+django
+sentence-transformers
+faiss-cpu
