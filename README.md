@@ -136,7 +136,7 @@
 | **Frontend** | HTML + JavaScript |
 | **기타** | `langchain`, `torch`, `dotenv` 등 |
 
-5. 프로젝트 구조
+## 5. 프로젝트 구조
 ```bash
 chat_project/
 ├── accounts/                # 로그인 관련 기능
@@ -164,7 +164,7 @@ chat_project/
 
 ---
 
-6. 시스템 아키텍처 및 흐름
+## 6. 시스템 아키텍처 및 흐름
 ```bash
 [사용자 질문] 
      ↓
@@ -182,7 +182,7 @@ chat_project/
      ↓
 [HTML 채팅 UI에 실시간 스트리밍 출력]
 ```
-7. 실행 방법
+## 7. 실행 방법
 1. 의존성 설치
 ```bash
 pip install -r requirements.txt
