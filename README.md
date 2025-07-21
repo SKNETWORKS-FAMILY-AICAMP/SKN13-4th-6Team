@@ -3,11 +3,6 @@
 
 
 ## 🧑‍💻 팀원 소개
-| 항목 | 최성장 | 고범석 | 지형우 | 안수민 | 김동욱 |
-|----|----|----|----|----|----|
-| 이미지 | <img src="" width="100" height="100"> | <img src="" width="120" height="100"> | <img src="" width="100" height="100"> | <img src="" width="100" height="100"> | <img src="" width="100" height="100"> |
-| 이메일 | [GrowingChoi](https://github.com/GrowingChoi) | <p align='center'>[](https://github.com/)</p> | <p align='center'>[](https://github.com/)</p> | <p align='center'>[](https://github.com/)</p> |  |
-
 <table align=center>
   <tbody>
    <tr>
