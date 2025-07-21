@@ -214,7 +214,7 @@ http://127.0.0.1:8000/accounts/login/
 
 
 <div style="display: flex; gap: 16px; align-items: flex-start;">
-  <img src="images/qrCode.png" alt="QR" style="width:350px; height:auto;">
+  <img src="images/qrCode.jpg" alt="QR" style="width:350px; height:auto;">
 </div>
 
 
