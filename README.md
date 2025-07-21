@@ -1,6 +1,4 @@
-
 # 💳 신용카드 추천 챗봇 (LLM 기반 RAG 시스템)
-
 
 ## 🧑‍💻 팀원 소개
 <table align=center>
