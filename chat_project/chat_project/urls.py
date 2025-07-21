@@ -22,7 +22,7 @@ from accounts import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("chatbot/", include("chatbot.urls")), 
+    path("chatbot/", include("chatbot.urls")),
     path("accounts/", include("accounts.urls")),
     path('', views.user_login, name='root-login'),  # 루트에서 바로 로그인 화면
 ]
