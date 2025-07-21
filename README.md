@@ -12,19 +12,19 @@
     </tr>
     <tr>
       <td align="center">
-          <img alt="Image" src="images\마이멜로디1.jpg" width="200px;" alt="최성장"/>
+          <img alt="Image" src="images\지크.png" width="200px;" alt="최성장"/>
       </td>
       <td align="center">
-          <img alt="Image" src="images\마이멜로디1.jpg" width="200px;" alt="고범석"/>
+          <img alt="Image" src="images\짐승거인.jpeg" width="200px;" alt="고범석"/>
       </td>
       <td align="center">
-          <img alt="Image" src="images\마이멜로디1.jpg" width="200px;" alt="김동욱"/>
+          <img alt="Image" src="images\베르돌트.png" width="200px;" alt="김동욱"/>
       </td>
       <td align="center">
-        <img alt="Image" src="images\마이멜로디1.jpg" width="200px;" alt="안수민" />
+        <img alt="Image" src="images\미카사.png" width="200px;" alt="안수민" />
       </td>
       <td align="center">
-        <img alt="Image" src="images\마이멜로디1.jpg" width="200px;" alt="지형우"/>
+        <img alt="Image" src="images\리바이.png" width="200px;" alt="지형우"/>
       </td>
     </tr>
     <tr>
@@ -224,4 +224,4 @@ http://127.0.0.1:8000/accounts/login/
 
 #### 김동욱: 실제로 필요하다고 생각한 기능을 Langchain과 Django를 이용해 웹 서비스로 구현하고, AWS EC2를 통한 서버 배포까지 하는 과정을 통해 LLM을 활용한 서비스를 개발하는 경험 할 수 있었던 것 같아 좋습니다. <br/>
 
-#### 안수민: <br/>
+#### 안수민: Django를 이용해 웹 페이지를 구현하고, AWS EC2 서버를 통해 직접 배포까지 해보면서 막막하게만 느껴졌던 웹 서비스 구현에 대해 한층 더 감을 잡을 수 있었습니다. 그동안 배운 내용을 실제로 적용해볼 수 있었던 이번 팀 프로젝트는 제게 정말 소중하고 감사한 경험이었습니다.<br/>
