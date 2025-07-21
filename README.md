@@ -60,16 +60,16 @@
 | **API** | 스마트택배 배송 추적 API | 실시간 배송 정보 |
 ---
 
-4. 기술 스택
-| 구분              | 사용 기술                            |
-| --------------- | -------------------------------- |
-| Language        | Python                           |
-| Web Framework   | Django                           |
-| Embedding Model | `sentence-transformers`          |
-| Vector DB       | FAISS                            |
-| LLM Integration | OpenAI GPT                       |
-| Frontend        | HTML + JavaScript                |
-| 기타              | `langchain`, `torch`, `dotenv` 등 |
+## 4. 기술 스택
+| 구분 | 사용 기술 |
+|------|------|
+| **Language** | Python |
+| **Web Framework** | Django |
+| **Embedding Model** | `sentence-transformers` |
+| **Vector DB** | FAISS |
+| **LLM Integration** | OpenAI GPT |
+| **Frontend** | HTML + JavaScript |
+| **기타** | `langchain`, `torch`, `dotenv` 등 |
 
 5. 프로젝트 구조
 ```bash
@@ -132,6 +132,7 @@ python manage.py runserver
 ```
 4. 접속
 ```ruby
+# 예시 
 http://127.0.0.1:8000/accounts/login/
 ```
 로그인 후 /chatbot/으로 이동하여 챗봇 사용 가능
