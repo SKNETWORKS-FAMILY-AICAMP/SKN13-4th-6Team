@@ -13,5 +13,10 @@
     {% if form.non_field_errors %}
       <div class="error-msg">{{ form.non_field_errors }}</div>
     {% endif %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="error-msg">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
   </div>
 {% endblock %}
