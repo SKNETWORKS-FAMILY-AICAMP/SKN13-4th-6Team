@@ -133,9 +133,16 @@
       }
 
       @keyframes typing {
-        0%, 20% { opacity: 1; }
-        50% { opacity: 0.3; }
-        100% { opacity: 1; }
+        0%,
+        20% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+        100% {
+          opacity: 1;
+        }
       }
     </style>
   </head>
@@ -183,21 +190,21 @@
           true
         );
 
-        let responseText = '';
-        
-        xhr.onprogress = function() {
+        let responseText = "";
+
+        xhr.onprogress = function () {
           if (xhr.responseText) {
             // 새로운 데이터가 도착할 때마다 처리
             const newData = xhr.responseText.substring(responseText.length);
             responseText = xhr.responseText;
-            
+
             try {
               // Server-Sent Events 형식으로 파싱
-              const lines = newData.split('\n');
+              const lines = newData.split("\n");
               for (const line of lines) {
-                if (line.trim() && line.startsWith('data: ')) {
+                if (line.trim() && line.startsWith("data: ")) {
                   const jsonStr = line.substring(6);
-                  if (jsonStr.trim() !== '[DONE]') {
+                  if (jsonStr.trim() !== "[DONE]") {
                     try {
                       const data = JSON.parse(jsonStr);
                       if (data.response) {
@@ -221,17 +228,19 @@
         xhr.onload = function () {
           if (xhr.status === 200) {
             // 스트리밍 완료 후 최종 처리
-            if (responseText.trim() === '') {
+            if (responseText.trim() === "") {
               botMsg.innerHTML = marked.parse("응답이 없습니다.");
             }
             chatContainer.scrollTop = chatContainer.scrollHeight;
           } else {
-            botMsg.innerHTML = marked.parse(`오류 발생: ${xhr.status} ${xhr.statusText}`);
+            botMsg.innerHTML = marked.parse(
+              `오류 발생: ${xhr.status} ${xhr.statusText}`
+            );
             chatContainer.scrollTop = chatContainer.scrollHeight;
           }
         };
 
-        xhr.onerror = function() {
+        xhr.onerror = function () {
           botMsg.innerHTML = marked.parse("네트워크 오류가 발생했습니다.");
           chatContainer.scrollTop = chatContainer.scrollHeight;
         };
@@ -265,7 +274,6 @@
         const faqBox = document.createElement("div");
         faqBox.className = "faq-in-chat";
         const faqs = [
-          "연회비 없는 카드",
           "해외 결제 좋은 카드",
           "직장인 추천 카드",
           "대학생 혜택 많은 카드",
